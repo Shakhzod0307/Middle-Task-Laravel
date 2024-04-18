@@ -63,6 +63,16 @@
                                         </a>
                                     </div>
                                     @endif
+
+                                </div>
+                                <div>
+                                    <hr class="font-bold">
+                                    @if(!$application->answer)
+                                    <a href="{{route('answer.answer',$application->id)}}" class="py-2 px-4 mt-5 shadow-md no-underline rounded-full bg-green text-white font-sans font-semibold text-sm border-green btn-success hover:text-white hover:bg-green focus:outline-none active:shadow-none" >Answer</a>
+                                    @else
+                                        <h6 class="text-indigo-700 ">Answer</h6>
+                                        <p>{{$application->answer->answer}}</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -82,11 +92,11 @@
                                         <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.354 5.646a.5.5 0 0 0-.708 0L10 9.293 6.354 5.646a.5.5 0 1 0-.708.708L9.293 10l-3.647 3.646a.5.5 0 1 0 .708.708L10 10.707l3.646 3.647a.5.5 0 0 0 .708-.708L10.707 10l3.647-3.646a.5.5 0 0 0 0-.708z"/></svg>
                                     </button>
                                 </div>
-                                <script>
-                                    document.getElementById('close-btn').addEventListener('click', function() {
-                                        document.getElementById('alert').style.display = 'none';
-                                    });
-                                </script>
+{{--                                <script>--}}
+{{--                                    document.getElementById('close-btn').addEventListener('click', function() {--}}
+{{--                                        document.getElementById('alert').style.display = 'none';--}}
+{{--                                    });--}}
+{{--                                </script>--}}
                             @endif
                             @if(Session('error'))
                                 <div id="alert" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
