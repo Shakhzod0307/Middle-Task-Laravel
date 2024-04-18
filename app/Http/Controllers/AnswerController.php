@@ -27,4 +27,11 @@ class AnswerController extends Controller
         ]);
         return redirect()->route('dashboard')->with('success','Answer submitted successfully!');
     }
+
+    public function showApps(Request $request)
+    {
+//        dd($request->user()->applications);
+        $applications = $request->user()->applications()->latest()->paginate(10);
+        return view('answer.submittedapp',compact('applications'));
+    }
 }

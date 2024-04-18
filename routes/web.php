@@ -17,6 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('applications',ApplicationController::class);
+    Route::get('all-applications',[AnswerController::class, 'showApps'])->name('show.apps');
     Route::get('application/{application}/answer',[AnswerController::class, 'answer'])->name('answer.answer');
     Route::post('application/{application}/answer',[AnswerController::class, 'answerStore'])->name('answer.store');
 });
